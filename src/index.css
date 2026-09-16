@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #0a2540;
+  --color-mute: #3d5a73;
+  --color-brand: #0084ff;
+  --color-brand-dark: #0066d6;
+  --color-ice: #e8f4ff;
+  --color-line: #c5dcf5;
+  --color-mpesa: #00a651;
+  --color-mpesa-dark: #008c44;
+  --color-sun: #ffc107;
+  --color-sun-dark: #e6ac00;
+  --color-flame: #e31c23;
+  --color-teal: #00b4a6;
+  --color-violet: #7c4dff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  background:
+    radial-gradient(900px 420px at 0% 0%, #ffe082 0%, transparent 55%),
+    radial-gradient(800px 380px at 100% 0%, #80d8ff 0%, transparent 50%),
+    radial-gradient(700px 360px at 100% 100%, #b9f6ca 0%, transparent 50%),
+    radial-gradient(640px 320px at 0% 100%, #ffab91 0%, transparent 48%),
+    #f4fbff;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+::selection {
+  background: #ffecb3;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

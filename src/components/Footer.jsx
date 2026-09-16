@@ -51,8 +51,8 @@ export default function Footer() {
       </div>
       <div className="border-t border-white/10">
         <p className="mx-auto max-w-6xl px-4 py-5 text-xs text-white/50 sm:px-6">
-          Prices include VAT and free nationwide delivery. Confirm stock before payment.
-          Plumbing and installation are not included.
+          Prices include VAT and free nationwide delivery. Call or WhatsApp to confirm stock
+          before you pay. Plumbing and installation are not included.
         </p>
       </div>
     </footer>

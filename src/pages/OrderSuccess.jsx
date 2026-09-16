@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
-import { whatsappHref } from '../data/counties'
+import { SHOP_PHONE, TEL_HREF, whatsappHref } from '../data/counties'
 import { kes } from '../lib/money'
-import { prettyPhone } from '../lib/phone'
 
 export default function OrderSuccess() {
   const raw = sessionStorage.getItem('roto-last-order')
@@ -18,20 +17,13 @@ export default function OrderSuccess() {
     )
   }
 
-  const paid = order.method === 'mpesa'
-
   return (
     <main className="mx-auto max-w-lg px-4 py-16 text-center sm:px-6">
-      <p className={`text-sm font-semibold uppercase tracking-[0.16em] ${paid ? 'text-mpesa' : 'text-teal'}`}>
-        {paid ? 'Paid' : 'Order sent'}
-      </p>
-      <h1 className="mt-3 text-3xl font-bold tracking-tight">
-        {paid ? 'Thank you' : 'We have your order'}
-      </h1>
+      <p className="text-sm font-semibold uppercase tracking-[0.16em] text-teal">Inquiry sent</p>
+      <h1 className="mt-3 text-3xl font-bold tracking-tight">Finish on a call or WhatsApp</h1>
       <p className="mt-3 text-sm leading-6 text-mute">
-        {paid
-          ? `M-Pesa receipt ${order.id}. We will call ${prettyPhone(order.phone)} to confirm delivery to ${order.town}, ${order.county}.`
-          : `Finish the WhatsApp chat so we can confirm stock and delivery to ${order.town}, ${order.county}.`}
+        We confirm stock and delivery on {SHOP_PHONE}. Keep the chat open or call if we have not
+        replied.
       </p>
 
       <div className="mt-8 rounded-3xl bg-gradient-to-br from-emerald-50 via-white to-cyan-50 p-5 text-left text-sm shadow-sm">
@@ -51,24 +43,21 @@ export default function OrderSuccess() {
           <span>Total</span>
           <span>{kes(order.total)}</span>
         </div>
-        <p className="mt-2 text-xs text-mute">Delivery {order.eta?.toLowerCase()}.</p>
       </div>
 
       <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
         <a
+          href={TEL_HREF}
+          className="rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark"
+        >
+          Call us
+        </a>
+        <a
           href={whatsappHref()}
-          target="_blank"
-          rel="noopener"
           className="rounded-full bg-mpesa px-5 py-3 text-sm font-semibold text-white hover:bg-mpesa-dark"
         >
-          Message us
+          WhatsApp us
         </a>
-        <Link
-          to="/shop"
-          className="rounded-full border border-line px-5 py-3 text-sm font-semibold hover:bg-ice"
-        >
-          Continue shopping
-        </Link>
       </div>
     </main>
   )

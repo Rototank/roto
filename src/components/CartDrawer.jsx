@@ -92,7 +92,7 @@ export default function CartDrawer() {
               items.length === 0 ? 'pointer-events-none opacity-40' : ''
             }`}
           >
-            Checkout
+            Place order
           </Link>
         </div>
       </aside>

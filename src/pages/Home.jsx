@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: 'Are the prices current?',
-    a: 'Yes. Prices match the current Roto Tanks Kenya shop, VAT included. Confirm stock on WhatsApp before paying, as lists can move.',
+    a: 'Yes. Prices match the current Roto Tanks Kenya shop, VAT included. Call or WhatsApp to confirm stock before you pay, as lists can move.',
   },
   {
     q: 'Do you charge for delivery?',
@@ -57,7 +57,7 @@ export default function Home() {
             </h1>
             <p className="mt-4 max-w-md text-base leading-7 text-white/80">
             Genuine Roto prices, VAT included, with free delivery across Kenya. Vertical,
-              underground, loft and septic tanks. Pay with M-Pesa or WhatsApp.
+              underground, loft and septic tanks. Call or WhatsApp to inquire and order.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link

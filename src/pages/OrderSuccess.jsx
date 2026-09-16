@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { WHATSAPP_NUMBER } from '../data/counties'
+import { whatsappHref } from '../data/counties'
 import { kes } from '../lib/money'
 import { prettyPhone } from '../lib/phone'
 
@@ -56,9 +56,9 @@ export default function OrderSuccess() {
 
       <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
         <a
-          href={`https://wa.me/${WHATSAPP_NUMBER}`}
+          href={whatsappHref()}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener"
           className="rounded-full bg-mpesa px-5 py-3 text-sm font-semibold text-white hover:bg-mpesa-dark"
         >
           Message us

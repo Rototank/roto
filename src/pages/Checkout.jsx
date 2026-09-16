@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom'
 import { Link, useNavigate } from 'react-router-dom'
 import ProductPhoto from '../components/ProductPhoto'
 import { useCart } from '../context/CartContext'
-import { COUNTIES, WHATSAPP_NUMBER } from '../data/counties'
+import { COUNTIES, whatsappHref } from '../data/counties'
 import { quoteDelivery } from '../lib/delivery'
 import { kes } from '../lib/money'
 import { normalizeKePhone, prettyPhone } from '../lib/phone'
@@ -110,8 +110,9 @@ export default function Checkout() {
       return
     }
     const order = orderPayload('whatsapp')
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappText(order))}`
-    window.open(url, '_blank', 'noopener,noreferrer')
+    const url = whatsappHref(whatsappText(order))
+    const opened = window.open(url, '_blank', 'noopener')
+    if (!opened) window.location.assign(url)
     saveAndGo(order)
   }
 

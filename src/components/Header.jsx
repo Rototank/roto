@@ -2,7 +2,7 @@ import { Menu, MessageCircle, ShoppingCart, X } from 'lucide-react'
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
-import { WHATSAPP_NUMBER } from '../data/counties'
+import { whatsappHref } from '../data/counties'
 import { CATEGORIES } from '../data/products'
 
 const nav = [
@@ -61,13 +61,14 @@ export default function Header() {
 
         <div className="flex items-center gap-2">
           <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}`}
+            href={whatsappHref()}
             target="_blank"
-            rel="noreferrer"
-            className="hidden items-center gap-2 rounded-full bg-mpesa px-3 py-2 text-sm font-semibold text-white hover:bg-mpesa-dark sm:inline-flex"
+            rel="noopener"
+            className="inline-flex size-10 items-center justify-center rounded-full bg-mpesa text-white hover:bg-mpesa-dark sm:h-auto sm:w-auto sm:gap-2 sm:px-3 sm:py-2 sm:text-sm sm:font-semibold"
+            aria-label="Chat on WhatsApp"
           >
-            <MessageCircle className="size-4" />
-            WhatsApp
+            <MessageCircle className="size-5 sm:size-4" />
+            <span className="hidden sm:inline">WhatsApp</span>
           </a>
           <button
             type="button"
@@ -129,9 +130,9 @@ export default function Header() {
               </Link>
             ))}
             <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              href={whatsappHref()}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener"
               className="rounded-xl px-3 py-3 font-semibold text-mpesa"
             >
               WhatsApp

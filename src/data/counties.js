@@ -97,3 +97,13 @@ export const COUNTIES = Object.keys(zoneMap)
 
 export const WHATSAPP_NUMBER = '254105419421'
 export const SHOP_PHONE = '+254 105 419 421'
+
+export function whatsappHref(text = '') {
+  const params = new URLSearchParams({
+    phone: WHATSAPP_NUMBER,
+    type: 'phone_number',
+    app_absent: '0',
+  })
+  if (text) params.set('text', text)
+  return `https://api.whatsapp.com/send?${params.toString()}`
+}

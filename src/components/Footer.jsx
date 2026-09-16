@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { SHOP_PHONE, WHATSAPP_NUMBER } from '../data/counties'
+import { SHOP_PHONE, WHATSAPP_NUMBER, whatsappHref } from '../data/counties'
 import { CATEGORIES } from '../data/products'
 
 export default function Footer() {
@@ -39,9 +39,9 @@ export default function Footer() {
               {SHOP_PHONE}
             </a>
             <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              href={whatsappHref()}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener"
               className="hover:text-white"
             >
               WhatsApp orders
